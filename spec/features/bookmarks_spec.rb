@@ -2,8 +2,8 @@ feature 'view bookmarks' do
   scenario 'view a list of bookmarked URLs' do
     visit('/bookmarks')
 
-    expect(page).to have_content 'http://www.gmail.com'
-    expect(page).to have_content 'http://www.outlook.com'
-    expect(page).to have_content 'http://www.makers.tech'
+    expect(page).to have_content 'http://www.destroyallsoftware.com'
+    expect(page).to have_content 'http://www.google.com'
+    expect(page).to have_content 'http://www.makersacademy.com'
   end
 end
