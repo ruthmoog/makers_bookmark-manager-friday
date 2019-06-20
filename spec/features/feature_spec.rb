@@ -23,3 +23,12 @@ feature 'view bookmarks' do
     expect(page).to have_content 'http://www.makers.tech'
   end
 end
+
+feature 'add bookmarks' do
+  scenario 'complete a form to add a bookmark' do
+    visit('/')
+    fill_in('url', :with => 'http://www.facebook.com')
+    click_button('add')
+    expect(page).to have_content 'http://www.facebook.com'
+  end
+end
