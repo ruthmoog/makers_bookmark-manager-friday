@@ -38,6 +38,7 @@ feature 'delete bookmark' do
     fill_in('title', with: 'Facebook')
     click_button('add')
     click_button('delete')
+    expect(current_path).to eq '/bookmarks'
     expect(page).not_to have_link('Facebook', href: 'http://www.facebook.com')
   end
 end
