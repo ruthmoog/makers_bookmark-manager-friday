@@ -5,7 +5,7 @@ require './lib/bookmark'
 
 # This app allows the user to control bookmarked websites
 class BookmarkManager < Sinatra::Base
-  get '/' do
+  get '/bookmarks/new' do
     'Bookmark Manager'
     erb :index
   end

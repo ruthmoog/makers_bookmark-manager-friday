@@ -2,7 +2,7 @@
 
 feature 'index page' do
   scenario 'create a index page for the app' do
-    visit('/')
+    visit('/bookmarks/new')
     expect(page).to have_content 'Bookmark Manager'
   end
 end
@@ -23,10 +23,21 @@ end
 
 feature 'add bookmarks' do
   scenario 'complete a form to add a bookmark' do
-    visit('/')
+    visit('/bookmarks/new')
     fill_in('url', with: 'http://www.facebook.com')
     fill_in('title', with: 'Facebook')
     click_button('add')
     expect(page).to have_link('Facebook', href: 'http://www.facebook.com')
+  end
+end
+
+feature 'delete bookmark' do
+  scenario 'click delete and bookmark is removed' do
+    visit('/bookmarks/new')
+    fill_in('url', with: 'http://www.facebook.com')
+    fill_in('title', with: 'Facebook')
+    click_button('add')
+    click_button('delete')
+    expect(page).not_to have_link('Facebook', href: 'http://www.facebook.com')
   end
 end
