@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 feature 'index page' do
   scenario 'create a index page for the app' do
     visit('/')
@@ -6,12 +7,11 @@ feature 'index page' do
   end
 end
 
-
 feature 'view bookmarks' do
   scenario 'view a list of bookmarked URLs' do
-    Bookmark.create(url: "http://www.destroyallsoftware.com", title: "Destroy All")
-    Bookmark.create(url: "http://www.google.com", title: "Google")
-    Bookmark.create(url: "http://www.makers.tech", title: "Makers")
+    Bookmark.create(url: 'http://www.destroyallsoftware.com', title: 'Destroy All')
+    Bookmark.create(url: 'http://www.google.com', title: 'Google')
+    Bookmark.create(url: 'http://www.makers.tech', title: 'Makers')
 
     visit('/bookmarks')
 
@@ -24,8 +24,8 @@ end
 feature 'add bookmarks' do
   scenario 'complete a form to add a bookmark' do
     visit('/')
-    fill_in('url', :with => 'http://www.facebook.com')
-    fill_in('title', :with => 'Facebook')
+    fill_in('url', with: 'http://www.facebook.com')
+    fill_in('title', with: 'Facebook')
     click_button('add')
     expect(page).to have_link('Facebook', href: 'http://www.facebook.com')
   end
