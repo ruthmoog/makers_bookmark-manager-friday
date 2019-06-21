@@ -27,6 +27,6 @@ feature 'add bookmarks' do
     fill_in('url', :with => 'http://www.facebook.com')
     fill_in('title', :with => 'Facebook')
     click_button('add')
-    expect(page).to have_content('Facebook', href: 'http://www.facebook.com')
+    expect(page).to have_link('Facebook', href: 'http://www.facebook.com')
   end
 end

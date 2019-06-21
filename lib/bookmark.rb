@@ -4,6 +4,15 @@ require 'pg'
 
 # List of bookmarks in the database
 class Bookmark
+
+  attr_reader :title, :id, :url
+
+  def initialize(title: title, url: url, id: id)
+    @title = title
+    @url = url
+    @id = id
+  end
+
   def self.all
     if ENV['ENVIRONMENT'] == 'test'
       conn = PG.connect(dbname: 'bookmark_manager_test')
@@ -12,7 +21,7 @@ class Bookmark
     end
 
     result = conn.exec('SELECT * FROM bookmarks')
-    result.map { |bookmark| bookmark['url'] }
+    result.map { |bookmark| Bookmark.new(url: bookmark['url'], title: bookmark['title'], id: bookmark['id']) }
   end
 
   def self.create(url:, title:)

@@ -14,9 +14,13 @@ describe '.all' do
 
     expect(bookmarks.length).to eq 3
     expect(bookmarks.first).to be_a Bookmark
-    expect(bookmarks.first.id).to eq bookmark.id
-    expect(bookmarks.first.title).to eq 'Makers'
-    expect(bookmarks.first.url).to eq 'http://www.makers.tech'
+    # expect(bookmarks.first.id).to eq bookmark[0].id
+    expect(bookmarks[0].title).to eq 'Makers'
+    expect(bookmarks[0].url).to eq 'http://www.makers.tech'
+    expect(bookmarks[1].title).to eq 'Google'
+    expect(bookmarks[1].url).to eq 'http://www.google.com'
+    expect(bookmarks[2].title).to eq 'Destroy All'
+    expect(bookmarks[2].url).to eq 'http://www.destroyallsoftware.com'
   end
 
   describe '.create' do
